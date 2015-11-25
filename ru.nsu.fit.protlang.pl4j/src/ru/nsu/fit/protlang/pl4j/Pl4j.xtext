@@ -78,15 +78,20 @@ ArgumentDecl:
 
 ProcedureBody: 
 	{ProcedureBody}
-	expressions+=Expression
+	expressions+=Expression*
 ;
 
 Expression:
-	((ValueableExpression | SendStatement | ThrowExpr | AssignmentExpr) ';') | (IfDecl)
+	((ValueableExpression | SendStatement | ThrowExpr | AssignmentExpr | ReturnExpression | VariableDeclaration
+	) ';') | (IfDecl)
+;
+
+ReturnExpression:
+	'return' expr = ValueableExpression
 ;
 
 VariableDeclaration:
-	'var' name=ID ':' type=Type ';'
+	'var' name=ID ':' type=Type
 ;
 
 IfDecl: 

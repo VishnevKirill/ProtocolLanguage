@@ -56,6 +56,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pl4j.ecore#//ProcedureBody/expressions"/>
     </genClasses>
     <genClasses ecoreClass="Pl4j.ecore#//Expression"/>
+    <genClasses ecoreClass="Pl4j.ecore#//ReturnExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pl4j.ecore#//ReturnExpression/expr"/>
+    </genClasses>
     <genClasses ecoreClass="Pl4j.ecore#//VariableDeclaration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pl4j.ecore#//VariableDeclaration/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pl4j.ecore#//VariableDeclaration/type"/>
