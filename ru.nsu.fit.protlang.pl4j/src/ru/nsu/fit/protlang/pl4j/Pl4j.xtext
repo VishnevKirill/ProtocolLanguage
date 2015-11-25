@@ -1,0 +1,186 @@
+grammar ru.nsu.fit.protlang.pl4j.Pl4j with org.eclipse.xtext.common.Terminals
+
+generate pl4j "http://www.nsu.ru/fit/protlang/pl4j/Pl4j"
+
+Protocol:
+	'Name' ':' name=ID ';'
+	((charset = CharsetDecl) & (byteOrder = ByteOrderDecl))
+	(
+		(constantsBlocks += ConstantBlock)|
+		(propertyBlocks += PropertyBlock) |
+		(procedures += ProcedureDecl)
+	)*
+;
+
+FullyQualifiedName:
+	ID ('.' ID)*
+;
+	
+	
+CharsetDecl:
+	'CHARSET' ':' name=STRING ';'
+;
+
+ByteOrderDecl:
+	'BYTEORDER' ':' order=ByteOrder ';'
+;
+
+enum ByteOrder:
+	LITTLE='LITTLE_ENDIAN'	| 
+	BIG='BIG_ENDIAN'
+;
+
+ConstantBlock:
+	{ConstantsBlock}
+	'Constants' '{'
+	constants+=ConstantDecl* 
+	'}'
+;
+
+ConstantDecl:
+	name=ID ';'
+;
+
+enum Type:
+	STRING='string'|
+	INT='int'|
+	BYTE='byte'|
+	BYTE_ARRAY='byte[]'|
+	DOUBLE='double' |
+	CONSTANT='const'
+;
+
+PropertyBlock:
+	{PropertyBloc}
+	('Properties'|'Property') '{'
+	properties+=PropertyDecl*
+	'}'
+;
+
+PropertyDecl:
+	name=ID ':' type = Type ';'	
+;
+
+ProcedureDecl:
+	'Procedure' name=ID '('
+	(
+		arguments+=ArgumentDecl 
+		(',' arguments+=ArgumentDecl)*
+	)?
+	')' ':' returnType=Type '{'
+	procBody = ProcedureBody
+	'}'
+;
+
+ArgumentDecl:
+	name=ID ':' type=Type
+;
+
+ProcedureBody: 
+	{ProcedureBody}
+	expressions+=Expression
+;
+
+Expression:
+	((ValueableExpression | SendStatement | ThrowExpr | AssignmentExpr) ';') | (IfDecl)
+;
+
+VariableDeclaration:
+	'var' name=ID ':' type=Type ';'
+;
+
+IfDecl: 
+	'if' '(' boolExpr = BooleanExpression ')'
+	(
+		(
+			'{'
+			ifExpressions+=Expression
+			ifExpressions+=Expression*
+			'}'
+		)
+	)
+	( 'else'
+		(
+			'{'
+			elseExpression+=Expression
+			elseExpression+=Expression*
+			'}'
+		)
+	)?
+;
+
+
+SendStatement: 
+	'send' '('
+	arguments+=ValueableExpression
+	(',' arguments+=ValueableExpression)*
+	')'
+;
+
+BooleanExpression:
+	AndBoolExpr ({BooleanExpression.left=current} '||' right=AndBoolExpr)*
+;
+
+AndBoolExpr:
+	NegBoolExpr ({AndBoolExpr.left=current} '&&' right=NegBoolExpr) 
+;
+
+NegBoolExpr:
+	'!' left=CompBoolExpr 
+;
+
+CompBoolExpr:
+	left=Primary compOp = CompareOperator right=Primary
+;
+
+Primary:
+	BoolValue | ('(' BooleanExpression ')') | Compare
+;
+
+
+BoolValue:
+	TRUE='true' |
+	FALSE='false'
+;
+
+Compare: 
+	left=ValueableExpression compareOp = CompareOperator
+	right=ValueableExpression
+;
+
+CompareOperator:
+	LESS='<'|
+	LESS_OR_EQ='<='|
+	MORE='>'|
+	MORE_OR_EQ='>='|
+	EQ='=='|
+	NOT_EQ='!='
+;
+
+ValueableExpression:
+	ConstantExpr | RecieveStatement | VariableExpr
+;
+
+VariableExpr:
+	var=[VariableDeclaration]
+;
+
+ConstantExpr:
+	'*'constant=[ConstantDecl]
+;
+
+RecieveStatement:
+	'recv:' type=Type
+;
+
+ThrowExpr:
+	'throw' (type=FullyQualifiedName) message=STRING
+;
+
+AssignmentExpr:
+	var = VariableExpr '=' expr=ValueableExpression
+;
+
+
+
+

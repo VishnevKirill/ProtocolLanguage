@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ru.nsu.fit.protlang.pl4j.ui
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: ru.nsu.fit.protlang.pl4j.ui; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: ru.nsu.fit.protlang.pl4j;visibility:=reexport,
+ org.eclipse.xtext.ui,
+ org.eclipse.ui.editors;bundle-version="3.5.0",
+ org.eclipse.ui.ide;bundle-version="3.5.0",
+ org.eclipse.xtext.ui.shared,
+ org.eclipse.ui,
+ org.eclipse.xtext.builder,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.xtext.common.types.ui,
+ org.eclipse.xtext.ui.codetemplates.ui,
+ org.eclipse.compare
+Import-Package: org.apache.log4j
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: ru.nsu.fit.protlang.pl4j.ui.quickfix,
+ ru.nsu.fit.protlang.pl4j.ui.contentassist,
+ ru.nsu.fit.protlang.pl4j.ui.internal,
+ ru.nsu.fit.protlang.pl4j.ui.contentassist.antlr
+Bundle-Activator: ru.nsu.fit.protlang.pl4j.ui.internal.Pl4jActivator

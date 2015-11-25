@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/ru.nsu.fit.protlang.pl4j/src-gen" editDirectory="/ru.nsu.fit.protlang.pl4j.edit/src"
+    editorDirectory="/ru.nsu.fit.protlang.pl4j.editor/src" modelPluginID="ru.nsu.fit.protlang.pl4j"
+    forceOverwrite="true" modelName="Pl4j" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="6.0" copyrightFields="false" editPluginID="ru.nsu.fit.protlang.pl4j.edit"
+    editorPluginID="ru.nsu.fit.protlang.pl4j.editor" runtimeVersion="2.11">
+  <genPackages prefix="Pl4j" basePackage="ru.nsu.fit.protlang.pl4j" disposableProviderFactory="true"
+      fileExtensions="pl4j" ecorePackage="Pl4j.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Pl4j.ecore#//ByteOrder">
+      <genEnumLiterals ecoreEnumLiteral="Pl4j.ecore#//ByteOrder/LITTLE"/>
+      <genEnumLiterals ecoreEnumLiteral="Pl4j.ecore#//ByteOrder/BIG"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Pl4j.ecore#//Type">
+      <genEnumLiterals ecoreEnumLiteral="Pl4j.ecore#//Type/STRING"/>
+      <genEnumLiterals ecoreEnumLiteral="Pl4j.ecore#//Type/INT"/>
+      <genEnumLiterals ecoreEnumLiteral="Pl4j.ecore#//Type/BYTE"/>
+      <genEnumLiterals ecoreEnumLiteral="Pl4j.ecore#//Type/BYTE_ARRAY"/>
+      <genEnumLiterals ecoreEnumLiteral="Pl4j.ecore#//Type/DOUBLE"/>
+      <genEnumLiterals ecoreEnumLiteral="Pl4j.ecore#//Type/CONSTANT"/>
+    </genEnums>
+    <genClasses ecoreClass="Pl4j.ecore#//Protocol">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pl4j.ecore#//Protocol/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pl4j.ecore#//Protocol/charset"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pl4j.ecore#//Protocol/byteOrder"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pl4j.ecore#//Protocol/constantsBlocks"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pl4j.ecore#//Protocol/propertyBlocks"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pl4j.ecore#//Protocol/procedures"/>
+    </genClasses>
+    <genClasses ecoreClass="Pl4j.ecore#//CharsetDecl">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pl4j.ecore#//CharsetDecl/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Pl4j.ecore#//ByteOrderDecl">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pl4j.ecore#//ByteOrderDecl/order"/>
+    </genClasses>
+    <genClasses ecoreClass="Pl4j.ecore#//ConstantBlock"/>
+    <genClasses ecoreClass="Pl4j.ecore#//ConstantDecl">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pl4j.ecore#//ConstantDecl/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Pl4j.ecore#//PropertyBlock"/>
+    <genClasses ecoreClass="Pl4j.ecore#//PropertyDecl">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pl4j.ecore#//PropertyDecl/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pl4j.ecore#//PropertyDecl/type"/>
+    </genClasses>
+    <genClasses ecoreClass="Pl4j.ecore#//ProcedureDecl">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pl4j.ecore#//ProcedureDecl/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pl4j.ecore#//ProcedureDecl/arguments"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pl4j.ecore#//ProcedureDecl/returnType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pl4j.ecore#//ProcedureDecl/procBody"/>
+    </genClasses>
+    <genClasses ecoreClass="Pl4j.ecore#//ArgumentDecl">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pl4j.ecore#//ArgumentDecl/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pl4j.ecore#//ArgumentDecl/type"/>
+    </genClasses>
+    <genClasses ecoreClass="Pl4j.ecore#//ProcedureBody">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pl4j.ecore#//ProcedureBody/expressions"/>
+    </genClasses>
+    <genClasses ecoreClass="Pl4j.ecore#//Expression"/>
+    <genClasses ecoreClass="Pl4j.ecore#//VariableDeclaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pl4j.ecore#//VariableDeclaration/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pl4j.ecore#//VariableDeclaration/type"/>
+    </genClasses>
+    <genClasses ecoreClass="Pl4j.ecore#//IfDecl">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pl4j.ecore#//IfDecl/boolExpr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pl4j.ecore#//IfDecl/ifExpressions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pl4j.ecore#//IfDecl/elseExpression"/>
+    </genClasses>
+    <genClasses ecoreClass="Pl4j.ecore#//SendStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pl4j.ecore#//SendStatement/arguments"/>
+    </genClasses>
+    <genClasses ecoreClass="Pl4j.ecore#//BooleanExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pl4j.ecore#//BooleanExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pl4j.ecore#//BooleanExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Pl4j.ecore#//AndBoolExpr"/>
+    <genClasses ecoreClass="Pl4j.ecore#//NegBoolExpr"/>
+    <genClasses ecoreClass="Pl4j.ecore#//CompBoolExpr">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pl4j.ecore#//CompBoolExpr/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pl4j.ecore#//CompBoolExpr/compOp"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pl4j.ecore#//CompBoolExpr/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Pl4j.ecore#//Primary"/>
+    <genClasses ecoreClass="Pl4j.ecore#//BoolValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pl4j.ecore#//BoolValue/TRUE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pl4j.ecore#//BoolValue/FALSE"/>
+    </genClasses>
+    <genClasses ecoreClass="Pl4j.ecore#//Compare">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pl4j.ecore#//Compare/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pl4j.ecore#//Compare/compareOp"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pl4j.ecore#//Compare/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Pl4j.ecore#//CompareOperator">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pl4j.ecore#//CompareOperator/LESS"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pl4j.ecore#//CompareOperator/LESS_OR_EQ"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pl4j.ecore#//CompareOperator/MORE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pl4j.ecore#//CompareOperator/MORE_OR_EQ"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pl4j.ecore#//CompareOperator/EQ"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pl4j.ecore#//CompareOperator/NOT_EQ"/>
+    </genClasses>
+    <genClasses ecoreClass="Pl4j.ecore#//ValueableExpression"/>
+    <genClasses ecoreClass="Pl4j.ecore#//VariableExpr">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Pl4j.ecore#//VariableExpr/var"/>
+    </genClasses>
+    <genClasses ecoreClass="Pl4j.ecore#//ConstantExpr">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Pl4j.ecore#//ConstantExpr/constant"/>
+    </genClasses>
+    <genClasses ecoreClass="Pl4j.ecore#//RecieveStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pl4j.ecore#//RecieveStatement/type"/>
+    </genClasses>
+    <genClasses ecoreClass="Pl4j.ecore#//ThrowExpr">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pl4j.ecore#//ThrowExpr/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pl4j.ecore#//ThrowExpr/message"/>
+    </genClasses>
+    <genClasses ecoreClass="Pl4j.ecore#//AssignmentExpr">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pl4j.ecore#//AssignmentExpr/var"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pl4j.ecore#//AssignmentExpr/expr"/>
+    </genClasses>
+    <genClasses ecoreClass="Pl4j.ecore#//ConstantsBlock">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pl4j.ecore#//ConstantsBlock/constants"/>
+    </genClasses>
+    <genClasses ecoreClass="Pl4j.ecore#//PropertyBloc">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pl4j.ecore#//PropertyBloc/properties"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
