@@ -123,19 +123,19 @@ SendStatement:
 ;
 
 BooleanExpression:
-	AndBoolExpr ({BooleanExpression.left=current} '||' right=AndBoolExpr)*
+	AndBoolExpr ({BooleanExpression.left=current} '||' right=AndBoolExpr)?
 ;
 
 AndBoolExpr:
-	NegBoolExpr ({AndBoolExpr.left=current} '&&' right=NegBoolExpr) 
+	NegBoolExpr ({AndBoolExpr.left=current} '&&' right=NegBoolExpr)?
 ;
 
 NegBoolExpr:
-	'!' left=CompBoolExpr 
+	(neg?='!')? left=CompBoolExpr 
 ;
 
 CompBoolExpr:
-	left=Primary compOp = CompareOperator right=Primary
+	Primary ({CompBoolExpr.left=current} (compOp = CompareOperator) right=Primary)?
 ;
 
 Primary:

@@ -71,12 +71,11 @@
     <genClasses ecoreClass="Pl4j.ecore#//SendStatement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pl4j.ecore#//SendStatement/arguments"/>
     </genClasses>
-    <genClasses ecoreClass="Pl4j.ecore#//BooleanExpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pl4j.ecore#//BooleanExpression/left"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pl4j.ecore#//BooleanExpression/right"/>
-    </genClasses>
+    <genClasses ecoreClass="Pl4j.ecore#//BooleanExpression"/>
     <genClasses ecoreClass="Pl4j.ecore#//AndBoolExpr"/>
-    <genClasses ecoreClass="Pl4j.ecore#//NegBoolExpr"/>
+    <genClasses ecoreClass="Pl4j.ecore#//NegBoolExpr">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pl4j.ecore#//NegBoolExpr/neg"/>
+    </genClasses>
     <genClasses ecoreClass="Pl4j.ecore#//CompBoolExpr">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pl4j.ecore#//CompBoolExpr/left"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pl4j.ecore#//CompBoolExpr/compOp"/>
@@ -88,9 +87,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pl4j.ecore#//BoolValue/FALSE"/>
     </genClasses>
     <genClasses ecoreClass="Pl4j.ecore#//Compare">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pl4j.ecore#//Compare/left"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pl4j.ecore#//Compare/compareOp"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pl4j.ecore#//Compare/right"/>
     </genClasses>
     <genClasses ecoreClass="Pl4j.ecore#//CompareOperator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pl4j.ecore#//CompareOperator/LESS"/>

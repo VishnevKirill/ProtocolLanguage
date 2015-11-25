@@ -78,33 +78,26 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="arguments" upperBound="-1"
         eType="#//ValueableExpression" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BooleanExpression" eSuperTypes="#//Primary">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//AndBoolExpr"
-        containment="true"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BooleanExpression" eSuperTypes="#//Primary"/>
   <eClassifiers xsi:type="ecore:EClass" name="AndBoolExpr" eSuperTypes="#//BooleanExpression"/>
-  <eClassifiers xsi:type="ecore:EClass" name="NegBoolExpr" eSuperTypes="#//AndBoolExpr"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NegBoolExpr" eSuperTypes="#//AndBoolExpr">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="neg" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompBoolExpr">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Primary"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="compOp" eType="#//CompareOperator"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Primary"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Primary"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Primary" eSuperTypes="#//CompBoolExpr"/>
   <eClassifiers xsi:type="ecore:EClass" name="BoolValue" eSuperTypes="#//Primary">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="TRUE" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="FALSE" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Compare" eSuperTypes="#//Primary">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//ValueableExpression"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="compareOp" eType="#//CompareOperator"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//ValueableExpression"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompareOperator">
